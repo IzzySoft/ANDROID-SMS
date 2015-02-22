@@ -308,13 +308,24 @@ class SMSExtractor:
 		filey.write(line2)
 		filey.close()
 		
+def syntax():
+	print ''
+	print 'Syntax:'
+	print '    ' + sys.argv[0] + ' /path/to/mmssms.db/'
+	print ''
+	print 'Messages will be extracted to the specified directory, where your mmssms.db resides.'
+	print ''
+
 def main():
 
-	rootpath = sys.argv[1]
-	ex = SMSExtractor(rootpath)
-	ex.run()
-	mex = MMSExtractor(rootpath)
-	mex.run()
-			
+	if len(sys.argv) < 2:
+		syntax()
+	else:
+		rootpath = sys.argv[1]
+		ex = SMSExtractor(rootpath)
+		ex.run()
+		mex = MMSExtractor(rootpath)
+		mex.run()
+
 if __name__ == "__main__":
     main()
