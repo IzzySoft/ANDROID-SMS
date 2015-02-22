@@ -227,7 +227,7 @@ class MMSExtractor:
 		dic = {}
 		for key in self.convos:
 			self.convos[key].setTotal()
-			mmsOutput = '{0}/MMSCONVOS/{1}'.format(os.path.dirname(os.path.abspath(__file__)),self.convos[key].getNum())
+			mmsOutput = '{0}/MMSCONVOS/{1}'.format(self.path,self.convos[key].getNum())
 			if not os.path.exists(mmsOutput):
 				 os.makedirs(mmsOutput)	
 			liss = self.convos[key].getImages()	
@@ -287,7 +287,7 @@ class SMSExtractor:
 		filey.write(line)
 		dic = {}
 		for key in self.convos:
-			smsOutput = '{0}/SMSCONVOS/{1}'.format(os.path.dirname(os.path.abspath(__file__)),self.convos[key].getName())
+			smsOutput = '{0}/SMSCONVOS/{1}'.format(self.path,self.convos[key].getName())
 			if not os.path.exists(smsOutput): os.makedirs(smsOutput)
 			smsOutputFile = smsOutput+'/'+self.convos[key].getName()+'.txt'
 			stats = smsOutput+'/Statistics'+'.txt'
